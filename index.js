@@ -24,6 +24,7 @@ let fetchedProjects = [0, 1, 2, 3, 4, 5];
 
 const floatingFooter = document.querySelector(".floating-footer");
 window.addEventListener("load", () => {
+    consle.log("loaded")
     if(window.innerWidth <= 1000){
         container.classList.add("container-fullScreen")
         document.querySelectorAll(".project").forEach(project => {
