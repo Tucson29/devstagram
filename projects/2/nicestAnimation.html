@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            height: 100vh;
+            overflow: hidden;
+            
+        }
+        .box{
+            position: absolute;
+            background-color: white;
+            width: 250px;
+            height: 400px;
+            font-size: 200px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+            
+            
+        }
+        .buw{
+            background-color: rgb(41, 40, 40);
+            position: absolute;
+            align-items: center;
+            width: 250px;
+            height: 400px;
+            font-size: 200px;
+            padding: 5px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .blue{
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 255, 0.277), blue);
+            height: 260px;
+            width: 260px;
+            
+            animation: bluet;
+            animation-duration: 10s;
+            animation-timing-function:linear;
+            animation-iteration-count: infinite;
+
+            left: -70px;
+            top: 10px;
+            
+            transform-origin: bottom right;
+            
+        }
+
+        @keyframes bluet{
+            0%{rotate: 0deg;}
+            100%{rotate: 360deg;}
+        }
+
+        .red{
+            
+        }
+    </style>
+
+</head>
+<body>
+    <div class="buw">
+        <div class="blue"></div>
+        
+    </div>
+
+
+    <div class="red"></div>
+
+
+    <div class="box">
+        <p>B</p>
+    </div>
+    
+
+</body>
+</html>

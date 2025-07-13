@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+:root{
+    font-size: 16px;
+    /* main colors */
+    --main-color: #027382;
+    --secondary-color: #ECECEC;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+.center{
+    background-color: var(--secondary-color);
+    height: 10rem;
+    width: 48rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px;
+}
+
+.things{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 20rem;
+    border-radius: 1rem;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--secondary-color);
+    flex-direction: column;
+    position: absolute;
+    height: 14rem;
+    width: 20rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0px 0px 20px;
+}
+
+form div{
+    width: 100%;
+}
+
+.usrn-email{
+    margin-bottom: -1rem;
+}
+
+.pass{
+    margin-bottom: -1rem;
+}
+
+input{
+    border-radius: 2rem;
+    height: 3rem;
+    width: 100%;
+    border: 0.5px solid silver;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.button{
+    width: calc(100% - 4rem);
+    height: 3rem;
+    border-radius: 2rem;
+    border: 0.5px solid silver;
+    background-color: var(--main-color);
+    font-size: 2rem;
+    color: white;
+    /*box-shadow: 0px 0px 10px 2px black;*/
+    cursor: pointer;
+}
+
+.reklama{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0px 3rem;
+}
+
+.reklama h2{
+    color: rgb(88, 88, 88);
+    font-weight:200;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+.title{
+    font-family: Anta, sans-serif;
+    color: var(--main-color);
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.annex{
+    height: 100%;
+    width: calc(100% - 20rem);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+    body{
+        overflow: hidden;
+    }
+    .center{
+       flex-direction: column;
+       border-radius: 0;
+       background: transparent;
+       box-shadow: none;
+       width: 100%;
+       height: fit-content;
+       align-items: center;
+       justify-content: center;
+    }
+    .things{
+        width: 100%;
+    }
+    .annex{
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: unset;
+        width: 100%;
+    }
+    form{
+        position: relative;
+    }
+    .reklama{
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .title{
+        margin-left: 0;
+    }
+}

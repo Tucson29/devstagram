@@ -1,0 +1,347 @@
+:root{
+    font-size: 16px;
+    /* main colors */
+    --main-color: #027382;
+    --secondary-color: #ECECEC;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+
+
+    --color-1: #E7E2DC;
+    --color-2: #C3DFE2;
+    --color-3: #ABCED2;
+    --color-4: #ABCED2;
+    --color-5: #27888E;
+    --color-6: #2D5354;
+
+    /* or */
+    --color-10: #F3D1B8;
+    --color-20: #E0C1AD;
+    --color-30: #D7B08F;
+    --color-40: #EEE6D1;
+    --color-50: #E6E2D6;
+    --color-60: #C5C0AA;
+}
+
+.content{
+    margin-left: 15rem;
+    display: flex;
+    flex-grow: 1;
+    padding: 4rem;
+    height: 100%;
+    background-color: white;
+    flex-direction: column;
+}
+
+.table{
+    background-color: var(--secondary-color);
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 12px 2px;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* INPUT */
+
+.default-input{
+    border-radius: 2rem;
+    height: 3rem;
+    width: 100%;
+    border: 0.5px solid silver;
+    padding: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    
+    font-size: 1rem;
+}
+
+.personal-input{
+    border-radius: 2rem;
+    height: 3rem;
+    width: 100%;
+    border: 0.5px solid silver;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.personal-input:focus{
+    border: 0.5px solid black;
+}
+
+/**/
+.incorrect-input{
+    border: 2px solid red !important;
+}
+/**/
+
+/* DIV */
+
+.width{
+    width: 100%;
+}
+
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centered-y{
+    display: flex;
+    align-items: center;
+}
+.centered-x{
+    display: flex;
+    justify-content: center;
+}
+.column{
+    flex-direction: column;
+}
+.row{
+    flex-direction: row;
+}
+
+.title-centered-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-default-div{
+    padding: 1rem;
+    /*padding-left: 0;*/
+    width: 100%;
+}
+
+.input-div{
+    padding-right: 0rem;
+    margin-bottom: 1rem;
+}
+
+
+.hidden{
+    display: none;
+}
+
+/* BUTTON */
+
+button{
+    cursor: pointer;
+}
+
+.default-button{
+    border-radius: 1rem;
+    padding: 0.8rem;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.default-button:hover{
+    background-color: var(--color-6);
+}
+
+/* HREF */
+
+.not-decorated{
+    text-decoration: none;
+    color: black;
+}
+
+
+/* LOADING ANIMATION */
+
+.skeleton-text{
+    width: 100%;
+    height: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.125rem;
+}
+
+.skeleton-text:last-child{
+    margin-bottom: 0;
+    width: 80%;
+}
+
+.skeleton{
+    opacity: 0.7;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0%{
+        background-color: hsl(200, 20%, 70%);
+
+    }
+    100%{
+        background-color: hsl(200, 20%, 95%);
+        
+    }
+}
+
+/* LIST */
+
+
+
+/* LAYERS / MODALS */
+
+.modal{
+    background-color: #333333ab;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    border-radius: 20px;
+    z-index: 7;
+}
+
+.modal-table{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    box-shadow: 0 0 12px 0 rgb(0, 0, 0);
+}
+
+.layers{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    position: absolute;
+    z-index: 6;
+}
+
+
+/* ADITIONAL ELEMENTS */
+
+.ribbon{
+    width: fit-content;
+    font-size: 14px;
+    padding: 4px;
+    position: absolute;
+    right: -20px;
+    top: -8px;
+    text-align: center;
+    border-radius: 25px;
+    transform: rotate(20deg);
+    background-color: green;
+    border: 2px solid darkgreen;
+    color: white;
+}
+
+.smallQuestion-div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    padding-right: 0.5rem;
+}
+.smallQuestion-div button{
+    background: transparent;
+    border: none;
+    border-radius: 100%;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code{
+    padding: 1rem;
+    height: max-content;
+}
+.code-text{
+    border-radius: .5rem;
+    outline: none;
+    padding: 1rem;
+    width: 80%;
+    background-color: rgb(237, 237, 237);
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    resize: none;
+    height: max-content;
+    overflow: hidden !important;
+}
+
+/* ERROR MODAL */
+
+.error-table .fch{
+    padding: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+.error-table div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.error-table div div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error-table div h4{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+.modal-text{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.error-table .x-div{
+    justify-content: end;
+    position: absolute;
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-top: 0.3rem;
+}
+.error-table .x-div button{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: transparent;
+    height: 1.2rem;
+    border-radius: 0.2rem;
+    border: none;
+}
+.error-table .x-div button:active{
+    background-color: silver;
+}
+.error-table .x-div button svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    background: transparent;
+}
+.error-table div:last-child{
+    padding: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

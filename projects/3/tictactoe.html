@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimax Tic-Tac-Toe AI</title>
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff4a6b;
+            --dark: #2a2a3c;
+            --light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-color: var(--primary);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .cell {
+            aspect-ratio: 1/1;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cell:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .cell.x {
+            color: var(--primary);
+        }
+
+        .cell.o {
+            color: var(--secondary);
+        }
+
+        .status {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            height: 2rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .reset-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .difficulty-btn {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .modal p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .board {
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .cell {
+                font-size: 2.5rem;
+            }
+            
+            .status {
+                font-size: 1.2rem;
+            }
+            
+            button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cell {
+            animation: fadeIn 0.3s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status" id="status">Your turn! (X)</div>
+        
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        
+        <div class="controls">
+            <button class="reset-btn" id="reset">New Game</button>
+            <button class="difficulty-btn" id="difficulty">Minimax AI</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Game Over!</h2>
+            <p id="modal-message"></p>
+            <button class="reset-btn" id="modal-button">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Game state
+            let board = ['', '', '', '', '', '', '', '', ''];
+            let currentPlayer = 'x';
+            let gameActive = true;
+            let aiEnabled = true;
+            let aiThinking = false;
+            
+            // DOM elements
+            const cells = document.querySelectorAll('.cell');
+            const statusDisplay = document.getElementById('status');
+            const resetButton = document.getElementById('reset');
+            const difficultyButton = document.getElementById('difficulty');
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modalButton = document.getElementById('modal-button');
+            
+            // Winning conditions
+            const winningConditions = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+                [0, 4, 8], [2, 4, 6]             // diagonals
+            ];
+            
+            // Initialize game
+            init();
+            
+            function init() {
+                board = ['', '', '', '', '', '', '', '', ''];
+                currentPlayer = 'x';
+                gameActive = true;
+                
+                // Clear board UI
+                cells.forEach(cell => {
+                    cell.classList.remove('x', 'o');
+                    cell.textContent = '';
+                });
+                
+                updateStatus('Your turn! (X)');
+                
+                // Event listeners
+                cells.forEach(cell => {
+                    cell.addEventListener('click', handleCellClick);
+                });
+                
+                resetButton.addEventListener('click', init);
+                difficultyButton.addEventListener('click', toggleDifficulty);
+                modalButton.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                    init();
+                });
+            }
+            
+            function handleCellClick(e) {
+                if (!gameActive || aiThinking) return;
+                
+                const cellIndex = parseInt(e.target.getAttribute('data-index'));
+                
+                // If cell is already taken
+                if (board[cellIndex] !== '') return;
+                
+                // Make player move
+                makeMove(cellIndex, currentPlayer);
+                
+                // Check if game is over
+                if (checkWin() || checkDraw()) {
+                    return;
+                }
+                
+                // Switch to AI's turn if enabled
+                if (aiEnabled && gameActive) {
+                    aiThinking = true;
+                    updateStatus("AI is thinking...");
+                    
+                    // Delay AI move for better UX
+                    setTimeout(() => {
+                        const bestMove = findBestMove();
+                        makeMove(bestMove, 'o');
+                        aiThinking = false;
+                        
+                        // Check if game is over after AI move
+                        checkWin();
+                        checkDraw();
+                    }, 800);
+                }
+            }
+            
+            function makeMove(index, player) {
+                // Update board state
+                board[index] = player;
+                
+                // Update UI
+                cells[index].classList.add(player);
+                cells[index].textContent = player === 'x' ? 'X' : 'O';
+                
+                // Switch player if not game over
+                if (gameActive) {
+                    currentPlayer = player === 'x' ? 'o' : 'x';
+                    updateStatus(player === 'x' && aiEnabled ? "AI's turn (O)" : "Your turn! (X)");
+                }
+            }
+            
+            function checkWin() {
+                let gameWon = false;
+                
+                // Check all winning conditions
+                for (let i = 0; i < winningConditions.length; i++) {
+                    const [a, b, c] = winningConditions[i];
+                    
+                    // If any winning condition is met
+                    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                        gameWon = true;
+                        
+                        // Highlight winning cells
+                        cells[a].style.backgroundColor = '#e8f4ff';
+                        cells[b].style.backgroundColor = '#e8f4ff';
+                        cells[c].style.backgroundColor = '#e8f4ff';
+                        
+                        break;
+                    }
+                }
+                
+                if (gameWon) {
+                    gameActive = false;
+                    
+                    // Determine winner message
+                    const winner = currentPlayer === 'x' ? 'AI (O)' : 'Player (X)';
+                    showGameOver('Game Over!', `${winner} wins!`);
+                    
+                    return true;
+                }
+                
+                return false;
+            }
+            
+            function checkDraw() {
+                // If no empty cells left and no winner
+                if (!board.includes('') && gameActive) {
+                    gameActive = false;
+                    showGameOver('Game Over!', 'It\'s a draw!');
+                    return true;
+                }
+                return false;
+            }
+            
+            function updateStatus(message) {
+                statusDisplay.textContent = message;
+            }
+            
+            function showGameOver(title, message) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modal.classList.add('active');
+            }
+            
+            function toggleDifficulty() {
+                aiEnabled = !aiEnabled;
+                difficultyButton.textContent = aiEnabled ? 'Minimax AI' : 'Random AI';
+                
+                if (aiEnabled) {
+                    difficultyButton.style.backgroundColor = 'var(--dark)';
+                    updateStatus(currentPlayer === 'x' ? 'Your turn! (X)' : 'AI is thinking...');
+                    
+                    // If it's AI's turn and AI was just enabled
+                    if (currentPlayer === 'o' && gameActive && !aiThinking) {
+                        aiThinking = true;
+                        setTimeout(() => {
+                            const bestMove = findBestMove();
+                            makeMove(bestMove, 'o');
+                            aiThinking = false;
+                            checkWin();
+                            checkDraw();
+                        }, 800);
+                    }
+                } else {
+                    difficultyButton.style.backgroundColor = '#666';
+                    updateStatus(currentPlayer === 'x' ? 'Your turn! (X)' : 'Player 2 (O)');
+                }
+            }
+            
+            // Minimax algorithm implementation
+            function findBestMove() {
+                // If difficulty is toggled off, make random move
+                if (!aiEnabled) {
+                    return findRandomMove();
+                }
+                
+                let bestScore = -Infinity;
+                let bestMove = null;
+                
+                // Try all possible moves
+                for (let i = 0; i < 9; i++) {
+                    // If cell is empty
+                    if (board[i] === '') {
+                        // Make the move
+                        board[i] = 'o';
+                        
+                        // Call minimax
+                        const score = minimax(board, 0, false);
+                        
+                        // Undo the move
+                        board[i] = '';
+                        
+                        // Update best move
+                        if (score > bestScore) {
+                            bestScore = score;
+                            bestMove = i;
+                        }
+                    }
+                }
+                
+                return bestMove;
+            }
+            
+            function minimax(board, depth, isMaximizing) {
+                // Terminal states
+                if (checkWinner(board) === 'o') {
+                    return 10 - depth;
+                }
+                if (checkWinner(board) === 'x') {
+                    return depth - 10;
+                }
+                if (isBoardFull(board)) {
+                    return 0;
+                }
+                
+                if (isMaximizing) {
+                    let bestScore = -Infinity;
+                    
+                    for (let i = 0; i < 9; i++) {
+                        if (board[i] === '') {
+                            board[i] = 'o';
+                            const score = minimax(board, depth + 1, false);
+                            board[i] = '';
+                            bestScore = Math.max(score, bestScore);
+                        }
+                    }
+                    
+                    return bestScore;
+                } else {
+                    let bestScore = Infinity;
+                    
+                    for (let i = 0; i < 9; i++) {
+                        if (board[i] === '') {
+                            board[i] = 'x';
+                            const score = minimax(board, depth + 1, true);
+                            board[i] = '';
+                            bestScore = Math.min(score, bestScore);
+                        }
+                    }
+                    
+                    return bestScore;
+                }
+            }
+            
+            function checkWinner(board) {
+                for (let i = 0; i < winningConditions.length; i++) {
+                    const [a, b, c] = winningConditions[i];
+                    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                        return board[a];
+                    }
+                }
+                return null;
+            }
+            
+            function isBoardFull(board) {
+                return !board.includes('');
+            }
+            
+            function findRandomMove() {
+                const emptyCells = board.reduce((acc, cell, index) => {
+                    if (cell === '') acc.push(index);
+                    return acc;
+                }, []);
+                
+                if (emptyCells.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+                    return emptyCells[randomIndex];
+                }
+                
+                return null;
+            }
+        });
+    </script>
+</body>
+</html>

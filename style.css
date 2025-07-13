@@ -1,0 +1,1229 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+
+:root{
+    font-size: 16px;
+    /* main colors */
+    --main-color: #027382;
+    --secondary-color: #ECECEC;
+
+    --color-1: #E7E2DC;
+    --color-2: #C3DFE2;
+    --color-3: #ABCED2;
+    --color-4: #ABCED2;
+    --color-5: #27888E;
+    --color-6: #2D5354;
+
+    /* or */
+    --color-10: #F3D1B8;
+    --color-20: #E0C1AD;
+    --color-30: #D7B08F;
+    --color-40: #EEE6D1;
+    --color-50: #E6E2D6;
+    --color-60: #C5C0AA;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+}
+
+button{
+    border: none;
+    cursor: pointer;
+}
+
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+}
+
+.container{
+    height: 100vh;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 3rem;
+    padding-top: 0;
+    margin-left: 0px;
+    position: relative;
+
+    overflow-y: scroll; /* optional */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.tomargin{
+    margin-top: 0rem;
+}
+
+/*  MAIN CONTAINER */
+
+.project{
+    border: 0px solid salmon;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+    height: 92vh;
+
+    scroll-snap-align: center;
+}
+
+.screen{
+    background-color: none;
+    height: 30rem;
+    max-height: 80%;
+    border-radius: 1rem;
+}
+
+.screen iframe{
+    border-radius: 0.5rem;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* screen footer */
+
+.footer{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    max-width: 100%;
+    /*gap: 2rem;*/
+    height: 10%;
+    
+    align-items: center;
+}
+.footer .footer-element{
+    max-height: 100% !important;
+    font-size: 100% !important;
+}
+
+.like{
+    box-shadow: none !important;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.like svg{
+    width: 2.5rem;
+    height: 2.5rem;
+    max-height: 100%;
+    transition: scale .3s;
+}
+.like svg:hover{
+    scale: 1.05;
+}
+
+.like p{
+    font-size: 1rem;
+    margin-left: 0.2rem;
+    max-height: 100%;
+    color: rgb(95, 95, 95);
+}
+
+.showing{
+    padding: 0.2rem;
+    border-radius: 2rem;
+    padding-left: 0.6rem;
+    display: flex;
+    align-items: center;
+    /*box-shadow: 0 0 12px 0;*/
+    border: 0.2rem solid black;
+    height: calc(100% - 0.5rem);
+    font-weight: 550;
+    font-size: 0.9rem;
+    background: transparent;
+    background-color: white;
+    cursor: pointer;
+}
+
+.writable{
+    background: transparent;
+    width: 10rem;
+    padding: 0.5rem;
+    padding-left: 0.8rem;
+}
+
+.description{
+    width: 20rem;
+    max-width: 30%;
+    background: transparent;
+    border: 3px solid black;
+    padding-right: 2rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+}
+.description span:first-child{
+    max-height: 100% !important;
+    font-size: 100% !important;
+    background: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* closed */
+
+/*  PROJECT DATA */
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    margin-right: 4rem;
+    max-height: 3.5rem;
+    height: 12%;
+}
+
+.more{
+    width: max-content;
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    display: flex;
+    flex-grow: 1;
+}
+
+.margin-right{
+    margin-right: 1rem;
+    max-width: 30rem;
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project_settings{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-top: 0.4rem;
+    background: transparent;
+    margin-left: 2rem;
+}
+
+.header a{
+    height:100%;
+    max-height: 3.5rem;
+    width: auto
+}
+.header img{
+    height: 100%;
+    max-height: 3.5rem;
+    width: 100%;
+    border-radius: 100%;
+    border: 1px solid rgb(192, 192, 192, 0.2);
+}
+
+.header h2{
+    font-size: 1.5rem;
+    width: fit-content;
+}
+
+.by{
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+/* HEADER */
+
+.nots{
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.not{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: fit-content;
+    padding: 1rem;
+    height: 4rem;
+}
+.not:hover{
+    background-color: silver;
+}
+.imagen{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5rem;
+    margin-right: 1rem
+}
+.namen{
+    font-weight: 700;
+}
+.daten{
+    font-weight: 500;
+    color: gray;
+    font-size: 0.8rem;
+}
+.blackedmain{
+    color: black;
+    text-decoration: none;
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.blackedmain p{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header-modal{
+    background-color:white;
+    display: none;
+    height: fit-content;
+    min-height: 0rem;
+    height: 0;
+    padding-top: 5rem;
+    width: 20rem;
+    position: fixed;
+    z-index: 3;
+    left: calc(58% + 1rem);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0 12px 0;
+    flex-direction: column;
+    transition: all 1s;
+}
+.header-modal .recent-div{
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.2rem 0 0 1rem;
+}
+.header-modal .filterer{
+    padding: 1rem;
+    padding-bottom: 0;
+    display: flex;
+    align-items:end;
+    justify-content: center;
+    gap: 2rem;
+}
+.header-modal .filterer button{
+    font-weight: 200;
+    font-size: 1.1rem;
+    background: transparent;
+    color: gray;
+    padding-bottom: 0.6rem;
+}
+#users-filter{
+    border-bottom: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.header-modal .default{
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.header-modal .default span{
+    font-weight: 400;
+}
+
+header{
+    background-color: var(--main-color);
+    display: flex;
+    height: 5rem;
+    width: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: fixed;
+    z-index: 4;
+    left: 60%;
+    border-radius: 0 0 1rem 1rem;
+    align-items: center;
+    box-shadow: 0 0 12px 0;
+}
+
+header button{
+    height: 3rem;
+}
+
+.head{
+
+}
+
+.searchicon{
+    margin-left: 1rem;
+    cursor: pointer;
+    background: transparent;
+    height: fit-content;
+    width: fit-content;
+    transition: scale .3s;
+}
+.searchicon:hover{
+    scale: 1.1;
+}
+.searchbar{
+    margin-left: 1rem;
+    cursor: pointer;
+    background: transparent;
+    height: fit-content;
+    width: 100%;
+    border: none;
+    outline: none;
+    display: none;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    position: relative;
+}
+
+.filters{
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: scale .3s;
+}
+.filters:hover{
+    background-color: rgb(228, 228, 228);
+    scale: 1.05;
+}
+
+.content-toggle{
+    border-radius: 1rem;
+    padding: 1rem;
+    font-weight: 500;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.06rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: scale .3s;
+}
+.content-toggle:hover{
+    background-color: rgb(228, 228, 228);
+    scale: 1.05;
+}
+
+.closer{
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem;
+}
+
+/*@keyframes width-starter{
+    0%{
+        width: 33rem;
+        left: 46.4%;
+    }
+    10%{
+        width: 33rem;
+        left: 46.4%;
+    }
+    100%{
+        width: 22rem;
+        left: 58%;
+    }
+}*/
+.head{
+    /*transition: all 1s;
+    animation-name: width-starter;
+    animation-duration: 2s;
+    animation-fill-mode:none;*/
+}
+/*.head:has(.newposts:hover) {
+    width: 33rem;
+    left: 46.4%;
+}*/
+.newposts{
+    pointer-events: auto;
+    height: 100%;
+    width: 100%;
+    margin-left: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+.newpost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+    height: 100%;
+    width: fit-content;
+}
+.newpost img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 10rem;
+    border: 2px solid white;
+}
+.newpost span{
+    font-size: 0.8rem;
+    color: white;
+}
+
+/* MODALS */
+
+.modal-f{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 2;
+}
+
+/* MENU */
+
+.menu-table ul{
+    list-style: none;
+}
+.menu-table ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-table ul li button{
+    padding: 1rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    background: transparent;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+}
+.menu-table ul li a{
+    padding: 1rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    background: transparent;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+.menu-table ul li button:active{
+    background-color: #9b9b9b;
+}
+.menu-table ul li a:active{
+    background-color: #9b9b9b;
+}
+.menu-table ul li:first-child button{
+    border-radius: 1rem 1rem 0 0;
+}
+.menu-table ul li:last-child button{
+    border-radius: 0 0 1rem 1rem;
+}
+
+/* COMMENT */
+
+.comment-table{
+    max-width: 30rem;
+    width: 30rem;
+    height: 35rem;
+    overflow: hidden;
+}
+.comment-table .all{
+    height: 93%;
+}
+.comment-table .typeeing{
+    height: 7%;
+    display: flex;
+    border: 1px solid silver;
+}
+.comment-table .typeeing div{
+    height: 100%;
+}
+.comment-table .typeeing input{
+    width: 75%;
+    outline: none;
+    border: none;
+}
+.comment-table .typeeing .post-div{
+    width: 15%;
+    background-color: white;
+    border-left: 1px solid silver;
+}
+.comment-table .typeeing .post-div button{
+    height: 100%;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    background: transparent;
+}
+.comment-table .typeeing .emojis-div{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.comment-table .typeeing .emojis-div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: white;
+}
+.comment-table .typeeing .emojis-div button svg{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.comment-table .x-div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: absolute;
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-top: 0.3rem;
+}
+.comment-table .x-div button{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: transparent;
+    height: 1.2rem;
+    border-radius: 0.2rem;
+}
+.comment-table .x-div button:active{
+    background-color: silver;
+}
+.comment-table .x-div button svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    background: transparent;
+}
+
+.comment-holder{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-y: scroll;
+}
+.comment-holder .commenti{
+    width: 100%;
+    height: fit-content;
+}
+.comment-holder .commenti div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+.comment-holder .commenti div div:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.comment-holder .commenti div div:first-child div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .4rem;
+    padding-left: 1rem;
+    color: black;
+    text-decoration: none;
+}
+.comment-holder .commenti div div:first-child div a img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    border: 1px solid silver;
+}
+.comment-holder .commenti div div:first-child div a span{
+    font-weight: 400;
+}
+.comment-holder .commenti div div:first-child div div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 1rem;
+    position: relative;
+    top: 2px;
+}
+.comment-holder .commenti div div:first-child div div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: transparent;
+    gap: .3rem;
+}
+.comment-holder .commenti div div:first-child div div button span{
+    color: gray;
+}
+.comment-holder .commenti div .textarea{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: .6rem;
+    padding: .8rem;
+    font-weight: 350;
+}
+
+
+/* recommendation */
+
+.recommendation-holder{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-y: scroll;
+}
+.recommendation-holder .recommendi{
+    width: 100%;
+    height: fit-content;
+}
+.recommendation-holder .recommendi div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+.recommendation-holder .recommendi div div:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.recommendation-holder .recommendi div div:first-child div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .4rem;
+    padding-left: 1rem;
+    color: black;
+    text-decoration: none;
+}
+.recommendation-holder .recommendi div div:first-child div a img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    border: 1px solid silver;
+}
+.recommendation-holder .recommendi div div:first-child div a span{
+    font-weight: 400;
+}
+.recommendation-holder .recommendi div div:first-child div div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 1rem;
+    position: relative;
+    top: 2px;
+}
+.recommendation-holder .recommendi div div:first-child div div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: transparent;
+    gap: .3rem;
+}
+.recommendation-holder .recommendi div div:first-child div div button span{
+    color: gray;
+}
+.recommendation-holder .recommendi div .textarea{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: .6rem;
+    padding: .8rem;
+    font-weight: 350;
+}
+
+
+/* question */
+
+.comment-table .all #titele{
+    height: 5%;
+}
+.comment-table .all #conte{
+    height: 95%;
+}
+.question-holder{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-y: scroll;
+}
+.question-holder .questioni{
+    width: 100%;
+    height: fit-content;
+}
+#line{
+    width: 10%;
+    min-height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0;
+    padding-bottom: 0; 
+}
+#line hr{
+    height: 100%;
+}
+.question-holder .questioni div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+.question-holder .questioni div div:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.question-holder .questioni div div:first-child div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .4rem;
+    padding-left: 1rem;
+    color: black;
+    text-decoration: none;
+}
+.question-holder .questioni div div:first-child div a img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    border: 1px solid silver;
+}
+.question-holder .questioni div div:first-child div a span{
+    font-weight: 400;
+}
+.question-holder .questioni div div:first-child div div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 1rem;
+    position: relative;
+    top: 2px;
+}
+.question-holder .questioni div div:first-child div div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: transparent;
+    gap: .1rem;
+}
+.question-holder .questioni div div:first-child div div button span{
+    color: gray;
+}
+.question-holder .questioni div .textarea{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: .6rem;
+    padding: .8rem;
+    font-weight: 350;
+}
+#seeanswers-div{
+    margin-top: -.5rem;
+    align-items: end;
+}
+#seeanswers-div .hbt{
+    border: none;
+    background: transparent;
+    width: fit-content;
+    margin-right: .5rem;
+}
+#seeanswers-div .hbt:hover{
+    text-decoration: underline;
+}
+#answeringer{
+    z-index: 0; 
+    position: absolute; 
+    height: 5rem; 
+    top: 88%;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    border-top: 1px solid silver;
+    background-color: rgba(192, 192, 192, 0.2);
+    font-weight: 350;
+}
+#answeringer div:first-child{
+    display: flex;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding-right: 2rem;
+    white-space: nowrap;
+}
+#answeringer div:first-child span{
+    overflow: hidden;
+    width: 30rem;
+    text-overflow: ellipsis;
+}
+
+
+/* answer */
+
+.question-holder .answeri:first-child{
+    margin-top: -1rem;
+}
+.question-holder .answeri{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+}
+.question-holder .marginerer hr{
+    height: 100%;
+    border: .1px solid rgba(192, 192, 192, 0.7);
+}
+.question-holder .answer-container{
+    display: flex;
+    height: 100% !important;
+    gap: 0 !important;
+}
+.question-holder .answeri div{
+    width: 85%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column !important;
+    gap: .7rem;
+    padding-top: .1rem;
+}
+.question-holder .answeri #borderer{
+    padding-top: .6rem;
+    padding-left: .5rem;
+    border-left: 3px solid silver;
+}
+.question-holder .answeri div div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row !important;
+    width: 100%;
+    padding-right: 0 !important;
+}
+.question-holder .answeri div div:first-child div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row !important;
+}
+.question-holder .answeri div div:first-child div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .4rem;
+    padding-left: .6rem;
+    color: black;
+    text-decoration: none;
+}
+.question-holder .answeri div div:first-child div a img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    border: 1px solid silver;
+}
+.question-holder .answeri div div:first-child div a span{
+    font-weight: 400;
+    font-size: .9rem;
+}
+.question-holder .answeri div div:first-child div div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 1rem;
+    position: relative;
+    top: 2px;
+}
+.question-holder .answeri div div:first-child div div button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: transparent;
+    gap: .1rem;
+}
+.question-holder .answeri div div:first-child div div button span{
+    color: gray;
+}
+.question-holder .answeri div .textarea{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: .6rem;
+    padding: .8rem;
+    font-weight: 350;
+    align-items: normal !important;
+}
+
+
+/* DESCRIPTION */
+
+.description-table{
+    overflow: hidden;
+    max-width: 30rem;
+    min-width: 15rem;
+}
+.description-table .fch{
+    padding-top: 2rem;
+    padding-bottom: 0;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    flex-direction: column;
+}
+.description-table .fch h4{
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.description-table #show-code{
+    display: none;
+    padding: 0;
+}
+.description-table #show-code a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+    background-color: green;
+    border: 2px solid darkgreen;
+    padding: .5rem;
+    padding-top: .2rem;
+    border-radius: .4rem;
+}
+.description-table div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.description-table div div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.description-table div h4{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+.modal-description-dsc{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+.description-table .x-div{
+    justify-content: end;
+    position: absolute;
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-top: 0.3rem;
+}
+.description-table .x-div button{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: transparent;
+    height: 1.2rem;
+    border-radius: 0.2rem;
+}
+.description-table .x-div button:active{
+    background-color: silver;
+}
+.description-table .x-div button svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    background: transparent;
+}
+.description-table div:last-child{
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-direction: column;
+}
+
+/* REPORT */
+
+.report-table{
+    height: 15rem;
+    width: 20rem;
+}
+.report-table .x-div{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    width: 100%;
+    padding-right: 0.4rem;
+    padding-top: 0.3rem;
+}
+.report-table .x-div button{
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: transparent;
+    height: 1.2rem;
+    border-radius: 0.2rem;
+}
+.report-table .x-div button:active{
+    background-color: silver;
+}
+.report-table .x-div button svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    background: transparent;
+}
+.report-table form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 1rem;
+    flex-direction: column;
+}
+.report-table form div{
+    width: 100%;
+    height: fit-content;
+}
+.report-table form div:first-child{
+    margin-bottom: 2rem;
+}
+.report-table form div:first-child input{
+    border-radius: .5rem;
+    height: 3rem;
+    width: 100%;
+    border: 0.5px solid silver;
+    padding: 0.2rem;
+    outline: black;
+    display: flex;
+    font-size: .8rem;
+    padding-left: 1rem;
+}
+
+/* 80. sor */
+
+/* ++ */
+
+.di001{
+    padding: 1rem;
+}
+
+/* RESPOSIV */
+
+.project{
+    position: relative;
+}
+
+.container-fullScreen {
+    padding-top: 2rem;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.full-screen{
+
+}
+.container-fullScreen .screen{
+    max-height: unset;
+}
+
+.floating-footer{
+    position: absolute;
+    right: 1rem;
+    bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: .5rem;
+    padding: .5rem;
+    display: none;
+}
+
+.comen svg{
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 880px) {
+
+}

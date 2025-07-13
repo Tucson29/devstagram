@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    scale: 1.2;
+    max-width: 100%;
+}
+
+.screen{
+    grid-column: span 4 / span 4;
+    background-color: rgba(0, 255, 255, 0.2);
+    height: 4rem;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 5px;
+    padding-right: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 300px;
+}
+.screen #result{
+    font-size: 2rem;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.buttons{
+    grid-column: span 4 / span 4;
+    grid-row: span 4 / span 4;
+    grid-row-start: 2;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+}
+#b4 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+
+#b5 {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+#b6 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+#b7 {
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+#b8 {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+#b9 {
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+
+#b0 {
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+
+#plus {
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+#minus {
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+#multiply {
+    grid-column-start: 4;
+    grid-row-start: 3;
+}
+
+#devide {
+    grid-column-start: 4;
+    grid-row-start: 4;
+}
+
+#equals {
+    grid-column-start: 3;
+    grid-row-start: 4;
+}
+
+#clear {
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+
+.button{
+    cursor: pointer;
+    padding: 1rem;
+    background-color: yellow;
+    border-radius: 5px;
+}
+.button:hover{
+    background: orange;
+}
+.button:active{
+    scale: 0.9;
+}

@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display:flex;
+    background: linear-gradient(105deg, rgb(0, 187, 187), rgb(222, 56, 84));
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+body::after{
+    position: fixed;
+}
+.container{
+    display: flex;
+    padding: 10px;
+    border: 4px solid rgb(0, 0, 0);
+    position: relative;
+    height: 300px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(39, 39, 39);
+    
+}
+.container::after{
+    position: fixed;
+}
+#username{
+    height: 30px;
+    background: transparent;
+    outline: none;
+    color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 5px;
+    padding-top: 10px;
+    
+}
+#username:focus ~ label{
+    animation: nameanimat;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+@keyframes nameanimat{
+    0%{color: gray;}
+    100%{color: rgb(204, 204, 204);
+        font-size: 70%;
+        transform: translateY(-15px) translateX(-8px);}
+}
+.name label{
+    margin-left: -120px;
+    margin-top: -20px;
+    color: gray;
+}
+#password{
+    height: 30px;
+    background: transparent;
+    outline: none;
+    color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 5px;
+    padding-top: 10px;
+}
+#password:focus ~ label{
+    animation: passanimat;
+    animation-duration: 1s;
+    animation-fill-mode:backwards;
+}
+@keyframes passanimat{
+    0%{color: gray;}
+    100%{color: rgb(204, 204, 204);
+        font-size: 70%;
+        transform: translateY(-15px) translateX(-8px);}
+}
+.pass label{
+    margin-left: -120px;
+    margin-top: -20px;
+    color: gray;
+}    
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    width: 200px;
+    
+}
+.pass{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    
+}
+label{
+    color: white;
+}
+a{
+    color: aliceblue;
+    text-decoration: none;
+}
+.forgot{
+    
+    margin-top: 20px;
+    
+}
+.forgot::after{
+    position: fixed;
+}
+#signin{
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+}
+#signin::after{
+    position: fixed;
+}
+.up{
+    margin-top: 10px;
+    margin-bottom: -30px;
+}
+.up::after{
+    position: fixed;
+}

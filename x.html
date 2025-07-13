@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smooth GIF Carousel</title>
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+    }
+
+    .carousel {
+      overflow: hidden;
+      width: 100%;
+      background: #111;
+      padding: 40px 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content; /* allows flex items to be wider than container */
+      animation: scroll 20s linear infinite;
+    }
+
+    .carousel-track img {
+      height: 100px;
+      margin-right: 40px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <div class="carousel-track">
+      <!-- Put your GIFs once -->
+      <img src="yourgif1.gif" alt="GIF 1">
+      <img src="yourgif2.gif" alt="GIF 2">
+      <img src="yourgif3.gif" alt="GIF 3">
+      <!-- And repeat them manually for seamless loop -->
+      <img src="yourgif1.gif" alt="GIF 1 duplicate">
+      <img src="yourgif2.gif" alt="GIF 2 duplicate">
+      <img src="yourgif3.gif" alt="GIF 3 duplicate">
+    </div>
+  </div>
+</body>
+</html>
