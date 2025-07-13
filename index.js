@@ -23,6 +23,34 @@ const headPart = document.querySelector('.head')
 let fetchedProjects = [0, 1, 2, 3, 4, 5];
 
 const floatingFooter = document.querySelector(".floating-footer");
+window.addEventListener("load", () => {
+    if(window.innerWidth <= 1000){
+        container.classList.add("container-fullScreen")
+        document.querySelectorAll(".project").forEach(project => {
+            project.classList.add("full-screen")
+        })
+        document.querySelectorAll(".footer").forEach(foot => {
+            foot.style.display = "none";
+        })
+        document.querySelectorAll(".header").forEach(head => {
+            head.style.display = "none";
+        })
+        floatingFooter.style.display = "flex"
+
+    } else if (window.innerWidth >= 1000) {
+        container.classList.remove("container-fullScreen")
+        document.querySelectorAll(".project").forEach(project => {
+            project.classList.remove("full-screen")
+        })
+        document.querySelectorAll(".footer").forEach(foot => {
+            foot.style.display = "flex";
+        })
+        document.querySelectorAll(".header").forEach(head => {
+            head.style.display = "flex";
+        })
+        floatingFooter.style.display = "none"
+    }
+})
 window.addEventListener("resize", () => {
     if(window.innerWidth <= 1000){
         container.classList.add("container-fullScreen")
