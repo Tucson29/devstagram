@@ -170,6 +170,9 @@
     body[data-theme="dark"] #black-arrow{
       display: none;
     }
+    body[data-theme="dark"] #experience-link-div{
+      color: white;
+    }
 
     #white-arrow{
       display: none;
@@ -627,6 +630,13 @@
       text-align: center;
     }
 
+    #experience-link-div{
+      display: none;
+      color: black;
+      font-size: 1.5rem;
+      margin-bottom: .6rem;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 1500px) {
@@ -704,6 +714,9 @@
     @media (max-width: 940px) {
       .navbar-center{
         display: none;
+      }
+      #experience-link-div{
+        display: flex;
       }
       .list-container{
         grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
@@ -871,6 +884,7 @@
   <h1 style="margin-bottom: 1rem; font-size: 2.2rem;" class="neon-text" id="slogan">Get credits for those late night coding sessions</h1>
   <p style="font-size: 1.8rem; padding: 0 1rem; text-align: center;" id="markt">Showcasing your work has never been easier.
     Scroll trough programming projects and give feedback.</p>
+  <a href="#experience" id="experience-link-div">Experience</a>
   <a style="margin-bottom: 1rem;" class="button" href="signup.html">Join the Waitlist</a>
 
   <section>
