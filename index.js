@@ -56,7 +56,7 @@ window.onload = function() {
             floatingFooter[i].style.display = "none";
         }
     }
-})
+}
 window.addEventListener("resize", () => {
     if(window.innerWidth <= 1000){
         container.classList.add("container-fullScreen")
