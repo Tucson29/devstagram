@@ -24,7 +24,38 @@ let fetchedProjects = [0, 1, 2, 3, 4, 5];
 
 const floatingFooter = document.querySelectorAll(".floating-footer");
 
+window.onload = function() {
+    if(window.innerWidth <= 1000){
+        container.classList.add("container-fullScreen")
+        document.querySelectorAll(".project").forEach(project => {
+            project.classList.add("full-screen")
+        })
+        document.querySelectorAll(".footer").forEach(foot => {
+            foot.style.display = "none";
+        })
+        document.querySelectorAll(".header").forEach(head => {
+            head.style.display = "none";
+        })
+        for (let i = 0; i < floatingFooter.length; i++) {
+            floatingFooter[i].style.display = "flex";
+        }
 
+    } else if (window.innerWidth >= 1000) {
+        container.classList.remove("container-fullScreen")
+        document.querySelectorAll(".project").forEach(project => {
+            project.classList.remove("full-screen")
+        })
+        document.querySelectorAll(".footer").forEach(foot => {
+            foot.style.display = "flex";
+        })
+        document.querySelectorAll(".header").forEach(head => {
+            head.style.display = "flex";
+        })
+        for (let i = 0; i < floatingFooter.length; i++) {
+            floatingFooter[i].style.display = "none";
+        }
+    }
+})
 window.addEventListener("resize", () => {
     if(window.innerWidth <= 1000){
         container.classList.add("container-fullScreen")
