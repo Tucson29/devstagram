@@ -1202,15 +1202,16 @@ header button{
 .container-fullScreen .screen{
     max-height: unset;
 }
-
+.container-fullScreen .project{
+    margin-top: 1vh;
+    margin-bottom: 7vh;
+}
 .floating-footer{
-    position: absolute;
-    right: 1rem;
-    bottom: 10rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: .5rem;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     background-color: rgb(255, 255, 255, 0.5);
     border-radius: .5rem;
     padding: .5rem;
