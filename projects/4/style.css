@@ -132,3 +132,9 @@ body{
 .button:active{
     scale: 0.9;
 }
+
+@media(max-width: 500px){
+    .container{
+        scale: 1;
+    }
+}
